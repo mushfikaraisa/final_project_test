@@ -98,7 +98,7 @@ export class TaskManager {
             document.getElementById('TLheading').style.display = 'block';
         }
         // if tasks array now empty, hide Tasks List heading
-        if (this.tasks.length >= 0) {
+        if (this.tasks.length === 0) {
             document.getElementById('TLheading').style.display = 'none';
         }
     }
@@ -113,7 +113,7 @@ export class TaskManager {
 
     // takes everything out of local storage and stores them inside of the this.tasks and the current id
     load() {
-            if (this.tasks.length !== 0) {
+            if (this.tasks.length > 0) {
                 let tasksJSON = localStorage.getItem('tasks');
                 this.tasks = JSON.parse(tasksJSON);
                 let currentId = localStorage.getItem('currentId');
