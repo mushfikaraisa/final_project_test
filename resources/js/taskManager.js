@@ -113,7 +113,7 @@ export class TaskManager {
 
     // takes everything out of local storage and stores them inside of the this.tasks and the current id
     load() {
-            if (this.tasks.length > 0) {
+            if (this.tasks.length >= 0) {
                 let tasksJSON = localStorage.getItem('tasks');
                 this.tasks = JSON.parse(tasksJSON);
                 let currentId = localStorage.getItem('currentId');
