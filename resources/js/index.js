@@ -2,11 +2,14 @@ import { TaskManager } from './taskManager.js';
 
 // creates a new instance of the TaskManager class
 const manager = new TaskManager();
+manager.addTask("Welcome", "Please Create A Task", "None", "1/1/1", "To Do");
+// STEP 1 (on page load) --> renders all of the cards brought in from local storage
+manager.render();
+manager.save();
 
 // STEP 1 (on page load) --> loads all of the cards stored in the browser's local storage
 manager.load();
-// STEP 1 (on page load) --> renders all of the cards brought in from local storage
-manager.render();
+
 
 /* (STEP 2) An empty error string is created at the top of the validate form function. If any of the input fields are left empty when the
 submit button is clicked, the appropriate error is concatenated to the error string. If the error string is true, it appears above the
@@ -72,6 +75,8 @@ const validFormFieldInput = () => {
         document.getElementById('errorMessage').style.display = '';
     }
 }
+
+
 
 /* If a trash can icon is clicked on, the closest li element's display property is set to none so it looks like the card was removed. If a trash can or any of the other buttons are clicked, getTaskById is called. The specified changes are carried out on the selected task. The task was selectd by its id. */
 function modifyCard(event) {
